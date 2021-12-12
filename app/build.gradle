@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.example.covidtracker"
         minSdk 23
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -31,6 +31,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -75,7 +78,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$version_room"
 
     // WorkManager
-    implementation "android.arch.work:work-runtime-ktx:$version_work"
+    implementation "androidx.work:work-runtime-ktx:$version_work"
 
     
     // Logging

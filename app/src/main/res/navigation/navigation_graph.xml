@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.covidtracker.ui.fragments.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_countryDetails"
+            app:destination="@id/countryDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscribedFragment"
+        android:name="com.example.covidtracker.ui.fragments.SubscribedFragment"
+        android:label="subscribed_fragment"
+        tools:layout="@layout/subscribed_fragment" />
+    <fragment
+        android:id="@+id/countryDetails"
+        android:name="com.example.covidtracker.ui.fragments.CountryDetailsFragment"
+        android:label="country_details_fragment"
+        tools:layout="@layout/country_details_fragment" >
+        <argument
+            android:name="countryData"
+            app:argType="com.example.covidtracker.domain.CountryModel" />
+    </fragment>
+    <action android:id="@+id/action_global_countryDetails"
+        app:destination="@id/countryDetails" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.covidtracker.ui.fragments.PrefrenceFragment"
+        android:label="PrefrenceFragment" />
+</navigation>

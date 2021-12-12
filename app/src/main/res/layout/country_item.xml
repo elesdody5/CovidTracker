@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.example.covidtracker.domain.CountryModel" />
+
+        <variable
+            name="clickListener"
+            type="com.example.covidtracker.ui.adapters.CountryListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        card_view:cardBackgroundColor="?backgroundColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Media -->
+            <ImageView
+                android:id="@+id/countryImageView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                app:image="@{country.countryInfo.flag}"
+                tools:srcCompat="@drawable/background_det" />
+
+            <TextView
+                android:id="@+id/country_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{country.country}"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <!-- Title, secondary and supporting text -->
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/country_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{Long.toString(country.cases)}"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:chipIcon="@drawable/ic_covid"
+                    app:chipIconSize="15dp"
+                    app:chipMinHeight="20dp"
+                    tools:text="50000" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/country_death"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{Long.toString(country.deaths)}"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:chipIcon="@drawable/ic_death"
+                    app:chipIconEnabled="true"
+                    app:chipIconSize="15dp"
+                    app:chipMinHeight="20dp"
+                    tools:text="5000"
+                     />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/country_recoverd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{Long.toString(country.recovered)}"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:chipIcon="@drawable/ic_recovery"
+                    app:chipIconEnabled="true"
+                    app:chipIconSize="15dp"
+                    app:chipMinHeight="20dp"
+                    tools:text="500" />
+            </LinearLayout>
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:visibility="invisible" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/show_more"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> clickListener.onClick(country)}"
+                    android:text="@string/show_more" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

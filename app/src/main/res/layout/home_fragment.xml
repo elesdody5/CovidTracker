@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+
+        <variable
+            name="viewModel"
+            type="com.example.covidtracker.viewModels.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/applicationBackgroundColor"
+        tools:context=".ui.fragments.HomeFragment">
+
+        <LinearLayout
+            android:id="@+id/total_contaner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintBottom_toTopOf="@+id/horizontal_scroll"
+            card_view:layout_constraintTop_toBottomOf="@+id/card_view_outer">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_world"
+                />
+            <TextView
+                android:id="@+id/total_world"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{Long.toString(viewModel.totalWorld.cases)}"
+                />
+            <TextView
+                android:id="@+id/sync"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_sync_black_24dp"
+                android:gravity="end"
+                android:onClick="@{()->viewModel.sync()}"
+                android:padding="5dp"
+                android:text="Sync"
+                />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/card_view_outer"
+            android:layout_width="411dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_inner"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                card_view:cardBackgroundColor="?colorPrimary"
+                card_view:cardCornerRadius="25dp"
+                card_view:cardElevation="0dp">
+                <include layout="@layout/hot_line_call"
+                    bind:viewModel="@{viewModel}"/>
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/horizontal_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/country_list"
+            app:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintTop_toBottomOf="@+id/total_contaner">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filter_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                app:singleLine="true"
+                app:singleSelection="true" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/country_list"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:list="@{viewModel.countryList}"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/horizontal_scroll"
+            tools:listitem="@layout/country_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

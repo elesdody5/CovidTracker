@@ -19,11 +19,11 @@ class Repository(
     private val remoteDataSource: DiseaseAPI,
     private val localDataSource: CovidDao
 ) : RepositoryContract {
-    var countryList: LiveData<List<CountryModel>> =
+    override var countryList: LiveData<List<CountryModel>> =
         Transformations.map(localDataSource.getAllCountry()) {
             it.asCountryModelList()
         }
-    val totalWorld: LiveData<CountryModel> =
+    override val totalWorld: LiveData<CountryModel> =
         Transformations.map(localDataSource.getTotalWorld()) {
             it?.asCountryModel()
         }

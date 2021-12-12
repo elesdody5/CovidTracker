@@ -1,3 +1,79 @@
 <resources>
-    <string name="app_name">CovidTracker</string>
+    <string name="app_name">Covid-19 Tracker</string>
+    <!--Ahmed-->
+    <string name="cases">cases: %d</string>
+    <string name="death">death: %d</string>
+    <string name="call_now">Call Now</string>
+    <string name="recovered">recovered: %d</string>
+    <string name="advice_title">Are felling Sick ?</string>
+    <string name="advice_body">If you feel sick with any of covid-19 symptoms call this number immediately for help </string>
+    <string name="show_more">Show More</string>
+    <string name="stay_home">Stay at home for as long as possible</string>
+    <string name="keep_distance">Keep a safe distance from others</string>
+    <string name="wash_hand">Wash your hands regularly</string>
+    <string name="cover_mouth">Cover your mouth and nose when you cough</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="enable_notification">Enable Notification</string>
+    <string name="choose_lan">Choose Language</string>
+    <string name="dark_mode_key" translatable="false">dark_mode</string>
+    <string name="enable_notification_key" translatable="false">notify_key</string>
+    <string name="language_key" translatable="false">language</string>
+    <string name="language">language</string>
+    <string name="notification">notification</string>
+
+    <string name="total_world">Total World:</string>
+    <array name="languages_key">
+        <item>Ar</item>
+        <item>En</item>
+    </array>
+    <array name="languages">
+        <item>
+            <string name="ar">AR</string>
+        </item>
+        <item>
+            <string name="en">EN</string>
+        </item>
+    </array>
+    <array name="notifications_key">
+        <item>1_hour</item>
+        <item>2_hour</item>
+        <item>5_hour</item>
+        <item>once_a_day</item>
+    </array>
+    <array name="notifications_value">
+        <item>1 hour</item>
+        <item>2 hour</item>
+        <item>5 hour</item>
+        <item>Once a day</item>
+    </array>
+    <string-array name="order_list">
+        <item>cases</item>
+        <item>death</item>
+        <item>recovered</item>
+    </string-array>
+    <!--Ahmed-->
+    <!--Manar-->
+    <string name="Setting">Setting</string>
+    <string name="Subscribed">Subscribed</string>
+    <string name="Home">State</string>
+    <string name="ApplicationChannelName">Covid Tracker</string>
+    <string name="ApplicationChannelDescription">Covid Tracker Notfications Channel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="No_SubScribed_String">No Subscription Yet.. Go to Home Screen and Select a country to subscribe</string>
+    <string name="dark_mode">Dark mode</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!--Manar-->
 </resources>
