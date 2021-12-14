@@ -102,7 +102,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     // Testing code should not be included in the main code.
     // Once https://issuetracker.google.com/128612536 is fixed this can be fixed.
-    debugImplementation "androidx.fragment:fragment-testing:$version_fragmetn_kotlin"
+    debugImplementation "androidx.fragment:fragment-testing:1.4.0"
     implementation "androidx.test:core:$androidXTestCoreVersion"
     implementation 'com.stephentuso:welcome:1.4.1'
     

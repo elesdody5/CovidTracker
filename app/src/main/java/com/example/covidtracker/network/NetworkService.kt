@@ -11,16 +11,16 @@ import retrofit2.http.Path
 import java.lang.reflect.Type
 
 interface DiseaseAPI {
-    @GET("/v2/all")
+    @GET("/v3/covid-19/all")
     suspend fun getGeneralInfo(): GeneralInfo
 
-    @GET("/v2/countries")
+    @GET("/v3/covid-19/countries")
     suspend fun getCountriesData(): List<CountryData>
 
-    @GET("/v2/countries/{country}")
+    @GET("/v3/covid-19/countries/{country}")
     suspend fun getCountryData(@Path("country") countryName: String): CountryData
 
-    @GET("/v2/historical/{country}")
+    @GET("/v3/covid-19/historical/{country}")
     suspend fun getCountryHistory(@Path("country") countryName: String): CountryHistory
 }
 

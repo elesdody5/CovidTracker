@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class CountryDetailsViewModel(application: Application) : AndroidViewModel(application) {
-    private val covidRepo :RepositoryContract
+    private val covidRepo: RepositoryContract
     private var countryHistoryLiveData: LiveData<LocalCountryHistory>
     private var countryEntity: CountryModel? = null
 
@@ -24,7 +24,7 @@ class CountryDetailsViewModel(application: Application) : AndroidViewModel(appli
         countryHistoryLiveData = MutableLiveData()
     }
 
-    fun setCountryEntity(country: CountryModel){
+    fun setCountryEntity(country: CountryModel) {
         country.let {
             this.countryEntity = it
             viewModelScope.launch {
@@ -34,15 +34,19 @@ class CountryDetailsViewModel(application: Application) : AndroidViewModel(appli
 
     }
 
-    fun getCountryHistory() : LiveData<LocalCountryHistory>{
+    fun getCountryHistory(): LiveData<LocalCountryHistory> {
         return countryHistoryLiveData
     }
 
-    fun addCountrySubscribed(countyEntity: CountryModel){
+    fun addCountrySubscribed(countyEntity: CountryModel) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO){
-                covidRepo.insertContrySubscribed(CountryEntitySubscribed(countyEntity.country,
-                    countyEntity.cases,countyEntity.countryInfo.flag))
+            withContext(Dispatchers.IO) {
+                covidRepo.insertContrySubscribed(
+                    CountryEntitySubscribed(
+                        countyEntity.country,
+                        countyEntity.cases, countyEntity.countryInfo?.flag ?: ""
+                    )
+                )
             }
         }
     }
@@ -57,11 +61,17 @@ class CountryDetailsViewModel(application: Application) : AndroidViewModel(appli
         }
         return countrySubscribed
     }
-    fun deleteSubscribedCountry(countyEntity: CountryModel){
+
+    fun deleteSubscribedCountry(countyEntity: CountryModel) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO){
-                covidRepo.deleteCountrySubscribed(CountryEntitySubscribed(countyEntity.country
-                    ,countyEntity.cases,countyEntity.countryInfo.flag))
+            withContext(Dispatchers.IO) {
+                covidRepo.deleteCountrySubscribed(
+                    CountryEntitySubscribed(
+                        countyEntity.country,
+                        countyEntity.cases,
+                        countyEntity.countryInfo?.flag ?: ""
+                    )
+                )
             }
         }
     }

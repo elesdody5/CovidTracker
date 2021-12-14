@@ -36,7 +36,7 @@ class Repository(
                 localDataSource.insertCountry(* countries.asLocalCountryList().toTypedArray())
                 localDataSource.insertCountry(totalWorld.asCountryEntity())
             } catch (e: Exception) {
-                Timber.w(e.message)
+                Timber.w(e)
             }
 
         }

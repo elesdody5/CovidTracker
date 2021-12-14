@@ -14,10 +14,14 @@ import com.example.covidtracker.viewModels.CountryDetailsViewModel
 import com.github.ivbaranov.mfb.MaterialFavoriteButton.OnFavoriteChangeListener
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.soywiz.klock.DateTime
 import kotlinx.android.synthetic.main.country_details_fragment.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CountryDetailsFragment : Fragment() {
@@ -103,8 +107,8 @@ class CountryDetailsFragment : Fragment() {
         lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(formatYList)
 
         lineChart.axisRight.isEnabled = false
-        lineChart.axisLeft.axisMinimum = yAxisList.min!!.toFloat()
-        lineChart.axisLeft.axisMaximum = yAxisList.max()!!.toFloat() + 0.1f
+        lineChart.axisLeft.axisMinimum = yAxisList.minOrNull()?.toFloat() ?: 0f
+        lineChart.axisLeft.axisMaximum = yAxisList.maxOrNull()?.toFloat() ?: 0 + 0.1f
 
         lineChart.setTouchEnabled(true)
         lineChart.setPinchZoom(true)
@@ -145,8 +149,10 @@ class CountryDetailsFragment : Fragment() {
         countyName.text = countryModel.country
     }
 
-    fun setDateTime() {
-        dateTimeTextView.text = "Date: ${DateTime.now().date} \nTime: ${DateTime.now().time}"
+    private fun setDateTime() {
+        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+        val currentDate = sdf.format(Date())
+        dateTimeTextView.text = "Date: $currentDate"
     }
 
 }

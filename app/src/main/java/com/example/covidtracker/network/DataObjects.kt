@@ -14,7 +14,7 @@ data class CountryData(
     val active: Long,
     val critical: Long,
     val casesPerOneMillion: Long,
-    val deathsPerOneMillion: Long,
+    val deathsPerOneMillion: Double,
     val updated: Long
 )
 
@@ -39,7 +39,7 @@ data class GeneralInfo(
     val active: Long,
     val critical: Long,
     val casesPerOneMillion: Long,
-    val deathsPerOneMillion: Long,
+    val deathsPerOneMillion: Double,
     val affectedCountries: Long
 )
 

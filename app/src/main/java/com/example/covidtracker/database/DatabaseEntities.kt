@@ -26,7 +26,7 @@ data class CountyEntity(
     val active: Long,
     val critical: Long,
     val casesPerOneMillion: Long,
-    val deathsPerOneMillion: Long,
+    val deathsPerOneMillion: Double,
     val updated: Long
 ) : Serializable
 

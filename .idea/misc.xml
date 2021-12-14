@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/background_det.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/country_details_fragment.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/country_item.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.23645833333333333" />
       </map>

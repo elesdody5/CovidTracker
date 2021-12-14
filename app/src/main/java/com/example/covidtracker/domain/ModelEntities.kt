@@ -11,18 +11,18 @@ import kotlinx.android.parcel.Parcelize
 * */
 @Parcelize
 data class CountryModel(
-    val country: String,
-    val countryInfo: LocalCountryInfo,
-    val cases: Long,
-    val deaths: Long,
-    val recovered: Long,
-    val todayDeaths: Long,
-    val active: Long,
-    val critical: Long,
-    val casesPerOneMillion: Long,
-    val deathsPerOneMillion: Long,
-    val updated: Long,
-    val todayCases: Long
+    val country: String = "",
+    val countryInfo: LocalCountryInfo? = null,
+    val cases: Long = 0,
+    val deaths: Long = 0,
+    val recovered: Long = 0,
+    val todayDeaths: Long = 0,
+    val active: Long = 0,
+    val critical: Long = 0,
+    val casesPerOneMillion: Long = 0,
+    val deathsPerOneMillion: Double = 0.0,
+    val updated: Long = 0,
+    val todayCases: Long = 0
 
 ) : Parcelable
 
