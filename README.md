@@ -35,7 +35,7 @@ The app uses your phone’s technology to make a record of when you are close to
 
 # ScreenShots
 ![1](https://github.com/elesdody5/CovidTracker/blob/master/screenshots/1.png?raw=true) ![2](https://github.com/elesdody5/CovidTracker/blob/master/screenshots/2.png?raw=true)<br />
-![3](https://github.com/elesdody5/CovidTracker/blob/master/screenshots/3.png?raw=true) ![4](hhttps://github.com/elesdody5/CovidTracker/blob/master/screenshots/4.png?raw=true)
+![3](https://github.com/elesdody5/CovidTracker/blob/master/screenshots/3.png?raw=true) ![4](https://github.com/elesdody5/CovidTracker/blob/master/screenshots/4.png?raw=true)
 
 
 
